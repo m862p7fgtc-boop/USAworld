@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USWORLD</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       EN-TÊTE
+  ========================== -->
+  <header class="header">
+    <div class="brand">
+      <!-- REMPLACE TON-IMAGE.png PAR LE NOM DE TON IMAGE -->
+      <img src="images/TON-IMAGE.png" alt="USWORLD">
+      <span>USWORLD</span>
+    </div>
+
+    <button class="profile-button" onclick="showPage('profile')">
+      👤
+    </button>
+  </header>
+
+
+  <!-- =========================
+       CONTENU PRINCIPAL
+  ========================== -->
+  <main>
+
+    <!-- ACCUEIL -->
+    <section id="home" class="page active">
+      <div class="hero">
+        <p class="small-title">BIENVENUE SUR</p>
+        <h1>USWORLD</h1>
+        <p>
+          Découvrez notre univers et nos différentes catégories.
+        </p>
+
+        <button class="primary-button" onclick="showPage('shop')">
+          Découvrir
+        </button>
+      </div>
+
+      <h2>Catégories</h2>
+
+      <div class="categories">
+        <button onclick="filterProducts('all')">Tout</button>
+        <button onclick="filterProducts('popular')">Populaires</button>
+        <button onclick="filterProducts('new')">Nouveautés</button>
+      </div>
+
+      <h2>À découvrir</h2>
+
+      <div id="product-list" class="products"></div>
+    </section>
+
+
+    <!-- BOUTIQUE -->
+    <section id="shop" class="page">
+      <div class="page-title">
+        <p class="small-title">USWORLD</p>
+        <h1>Nos produits</h1>
+      </div>
+
+      <div id="shop-products" class="products"></div>
+    </section>
+
+
+    <!-- INFOS -->
+    <section id="info" class="page">
+      <div class="page-title">
+        <p class="small-title">USWORLD</p>
+        <h1>Informations</h1>
+      </div>
+
+      <div class="info-card">
+        <h3>À propos de USWORLD</h3>
+        <p>
+          Bienvenue sur USWORLD. Retrouvez ici toutes les informations
+          concernant notre plateforme.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>Besoin d'aide ?</h3>
+        <p>
+          Consultez la rubrique Contact pour nous envoyer un message.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- PANIER -->
+    <section id="cart" class="page">
+      <div class="page-title">
+        <p class="small-title">USWORLD</p>
+        <h1>Mon panier</h1>
+      </div>
+
+      <div id="cart-items"></div>
+
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cart-total">$0.00</strong>
+      </div>
+
+      <button class="primary-button full" onclick="checkout()">
+        Continuer
+      </button>
+    </section>
+
+
+    <!-- AVIS -->
+    <section id="reviews" class="page">
+      <div class="page-title">
+        <p class="small-title">USWORLD</p>
+        <h1>Avis</h1>
+      </div>
+
+      <div class="rating">
+        <strong>4.9</strong>
+        <span>★★★★★</span>
+        <p>Basé sur les avis de nos utilisateurs</p>
+      </div>
+
+      <div class="review">
+        <strong>Utilisateur</strong>
+        <span>★★★★★</span>
+        <p>Très bonne expérience.</p>
+      </div>
+
+      <div class="review">
+        <strong>Utilisateur</strong>
+        <span>★★★★★</span>
+        <p>Interface simple et agréable.</p>
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="page">
+      <div class="page-title">
+        <p class="small-title">USWORLD</p>
+        <h1>Contact</h1>
+      </div>
+
+      <div class="contact-card">
+        <p>Une question ? Contactez-nous.</p>
+
+        <input
+          type="text"
+          id="contact-name"
+          placeholder="Votre nom"
+        >
+
+        <textarea
+          id="contact-message"
+          placeholder="Votre message"
+          rows="5"
+        ></textarea>
+
+        <button class="primary-button full" onclick="sendContact()">
+          Envoyer
+        </button>
+      </div>
+    </section>
+
+
+    <!-- PROFIL -->
+    <section id="profile" class="page">
+      <div class="page-title">
+        <p class="small-title">USWORLD</p>
+        <h1>Mon profil</h1>
+      </div>
+
+      <div class="profile-card">
+        <div class="avatar">👤</div>
+
+        <h2>Bienvenue</h2>
+        <p>Votre espace personnel USWORLD</p>
+
+        <button class="secondary-button">
+          Se connecter
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       NAVIGATION BASSE
+  ========================== -->
+  <nav class="bottom-nav">
+
+    <button onclick="showPage('home')" class="nav-item active">
+      <span>⌂</span>
+      <small>Accueil</small>
+    </button>
+
+    <button onclick="showPage('shop')" class="nav-item">
+      <span>◈</span>
+      <small>Boutique</small>
+    </button>
+
+    <button onclick="showPage('cart')" class="nav-item">
+      <span>🛒</span>
+      <small>Panier</small>
+      <b id="cart-count">0</b>
+    </button>
+
+    <button onclick="showPage('reviews')" class="nav-item">
+      <span>★</span>
+      <small>Avis</small>
+    </button>
+
+    <button onclick="showPage('profile')" class="nav-item">
+      <span>♙</span>
+      <small>Profil</small>
+    </button>
+
+  </nav>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>

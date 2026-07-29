@@ -5,17 +5,17 @@
 const products = [
   {
     id: 1,
-    name: "Produit Premium",
-    description: "Présentation du produit",
-    price: 29.99,
+    name: "bot",
+    description: "le theme que tu souhaite",
+    price: 500.00,
     category: "popular",
     icon: "✦"
   },
   {
     id: 2,
-    name: "Produit Gold",
-    description: "Une sélection USWORLD",
-    price: 49.99,
+    name: "filtre snap",
+    description: "a l'écoute",
+    price: 20.00,
     category: "popular",
     icon: "◆"
   },

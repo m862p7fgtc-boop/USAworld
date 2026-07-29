@@ -259,3 +259,21 @@ async function envoyerTelegram(message) {
 
   return data;
 }
+
+async function sendContact() {
+  const message = document.getElementById("contact-message").value;
+
+  if (!message.trim()) {
+    alert("Écris un message avant d'envoyer.");
+    return;
+  }
+
+  try {
+    await envoyerTelegram(message);
+    alert("Message envoyé !");
+    document.getElementById("contact-message").value = "";
+  } catch (error) {
+    console.error(error);
+    alert("Impossible d'envoyer le message.");
+  }
+}

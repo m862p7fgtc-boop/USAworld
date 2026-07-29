@@ -240,3 +240,22 @@ function checkout() {
 renderProducts(products, "product-list");
 renderProducts(products, "shop-products");
 updateCart();
+async function envoyerTelegram(message) {
+  const response = await fetch("/api/telegram", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      message: message
+    })
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || "Erreur lors de l'envoi");
+  }
+
+  return data;
+}
